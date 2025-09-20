@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import personal.whatsappclone.dataAccess.UserRepository;
 import personal.whatsappclone.dtos.CreateUserRequest;
-import personal.whatsappclone.dtos.UserResponse;
+import personal.whatsappclone.dtos.GetUserResponse;
 import personal.whatsappclone.entities.User;
 import personal.whatsappclone.services.abstracts.UserService;
-import personal.whatsappclone.utilities.UserMapper;
+import personal.whatsappclone.utilities.mappers.UserMapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +24,7 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public UserResponse checkUser(CreateUserRequest userRequest) {
+    public GetUserResponse checkUser(CreateUserRequest userRequest) {
         Optional<User> foundUser = this.userRepository.
                 findByUsernameAndAndPassword(userRequest.getUsername(), userRequest.getPassword());
 
@@ -32,7 +32,7 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public List<UserResponse> getAll() {
+    public List<GetUserResponse> getAll() {
        return this.userRepository
                .findAll()
                .stream()

@@ -1,8 +1,8 @@
-package personal.whatsappclone.utilities;
+package personal.whatsappclone.utilities.mappers;
 
 import org.springframework.stereotype.Component;
 import personal.whatsappclone.dtos.CreateUserRequest;
-import personal.whatsappclone.dtos.UserResponse;
+import personal.whatsappclone.dtos.GetUserResponse;
 import personal.whatsappclone.entities.User;
 
 import java.time.LocalDateTime;
@@ -21,8 +21,8 @@ public class UserMapper {
         return user;
     }
 
-    public static UserResponse mapToResponse(User user){
-        UserResponse userResponse = new UserResponse();
+    public static GetUserResponse mapToResponse(User user){
+        GetUserResponse userResponse = new GetUserResponse();
 
         userResponse.setId(user.getId());
         userResponse.setUsername(user.getUsername());

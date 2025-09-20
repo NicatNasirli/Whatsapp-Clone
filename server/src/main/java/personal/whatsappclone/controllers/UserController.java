@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import personal.whatsappclone.dtos.CreateUserRequest;
-import personal.whatsappclone.dtos.UserResponse;
+import personal.whatsappclone.dtos.GetUserResponse;
 import personal.whatsappclone.services.concrates.UserManager;
 
 import java.util.List;
@@ -25,15 +25,13 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public UserResponse login(@RequestBody CreateUserRequest user){
+    public GetUserResponse login(@RequestBody CreateUserRequest user){
         return this.userManager.checkUser(user);
     }
 
     @GetMapping
-    public ResponseEntity<List<UserResponse>> getAll(){
-        this.userManager.getAll();
-
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<List<GetUserResponse>> getAll(){
+        return ResponseEntity.ok(this.userManager.getAll());
     }
 
 }

@@ -2,7 +2,7 @@ package personal.whatsappclone.services.abstracts;
 
 import org.springframework.stereotype.Service;
 import personal.whatsappclone.dtos.CreateUserRequest;
-import personal.whatsappclone.dtos.UserResponse;
+import personal.whatsappclone.dtos.GetUserResponse;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public interface UserService {
 
     void add(CreateUserRequest userRequest);
 
-    UserResponse checkUser(CreateUserRequest userRequest);
+    GetUserResponse checkUser(CreateUserRequest userRequest);
 
-    List<UserResponse> getAll();
+    List<GetUserResponse> getAll();
 }
