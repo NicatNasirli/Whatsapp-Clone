@@ -17,7 +17,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false, length = 20)
     private String username;
+
+    @Column(nullable = false, length = 10)
     private String password;
     private LocalDateTime createdAt;
 

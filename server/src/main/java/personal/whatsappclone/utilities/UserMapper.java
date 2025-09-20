@@ -2,6 +2,7 @@ package personal.whatsappclone.utilities;
 
 import org.springframework.stereotype.Component;
 import personal.whatsappclone.dtos.CreateUserRequest;
+import personal.whatsappclone.dtos.UserResponse;
 import personal.whatsappclone.entities.User;
 
 import java.time.LocalDateTime;
@@ -18,5 +19,16 @@ public class UserMapper {
         user.setCreatedAt(LocalDateTime.now());
 
         return user;
+    }
+
+    public static UserResponse mapToResponse(User user){
+        UserResponse userResponse = new UserResponse();
+
+        userResponse.setId(user.getId());
+        userResponse.setUsername(user.getUsername());
+        userResponse.setPassword(user.getPassword());
+        userResponse.setCreatedAt(user.getCreatedAt());
+
+        return userResponse;
     }
 }
